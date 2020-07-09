@@ -46,4 +46,12 @@ test("last name and email inputs are required", () => {
 });
 
 
+test("email input type should be email", () => {
+  const { getByTestId } = render(<ContactForm />);
+
+  const emailInput = getByTestId(/Email/i);  
+  
+  expect(emailInput).toHaveAttribute('type', 'email')
+});
+
 
