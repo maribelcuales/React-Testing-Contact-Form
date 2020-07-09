@@ -16,7 +16,7 @@ test("input labels are visible", () => {
 }); 
 
 test("Input data in form inputs", () => {
-  const { getByLabelText, getByTestId} = render(<ContactForm />);
+  const { getByLabelText } = render(<ContactForm />);
 
   const firstNameInput = getByLabelText(/First Name*/i);
   const lastNameInput = getByLabelText(/Last Name*/i);
@@ -32,10 +32,11 @@ test("Input data in form inputs", () => {
   expect(lastNameInput.value).toBe('targaryen');
   expect(emailInput.value).toBe('dtargaryen@email.com');
   expect(messagesInput.value).toBe('Order pizza in Westeros');
-
-  // fireEvent.click(getByTestId(/submit/i));
-
-  // const userText = getByText('dae');
-  // expect (userText).toBeInTheDocument();
 });
+
+test("first name input is required", () => {
+  const { getByTestId } = render(<ContactForm />);
+  expect(getByTestId(/first-name/i)).toBeRequired();
+});
+
 
