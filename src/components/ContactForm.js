@@ -20,7 +20,7 @@ const ContactForm = () => {
             id="firstName"
             name="firstName"
             placeholder="Edd"
-            required="true"
+            required={true}
             ref={register({ required: true, maxLength: 3 })}
           />
           {errors.firstName && (
@@ -35,7 +35,7 @@ const ContactForm = () => {
             id="lastName"
             name="lastName"
             placeholder="Burke"
-            required="true"
+            required={true}
             ref={register({ required: true })}
           />
           {errors.lastName && (
@@ -47,7 +47,12 @@ const ContactForm = () => {
           <label htmlFor="email" placeholder="bluebill1049@hotmail.com">
             Email*
           </label>
-          <input data-testid="email" id="email" name="email" ref={register({ required: true })} />
+          <input 
+            data-testid="email" 
+            id="email" 
+            name="email" 
+            required={true}
+            ref={register({ required: true })} />
           {errors.email && (
             <p>Looks like there was an error: {errors.email.type}</p>
           )}
