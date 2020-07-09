@@ -51,6 +51,7 @@ const ContactForm = () => {
             data-testid="email" 
             id="email" 
             name="email" 
+            type="email"
             required={true}
             ref={register({ required: true })} />
           {errors.email && (
