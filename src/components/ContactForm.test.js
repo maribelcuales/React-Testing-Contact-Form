@@ -39,4 +39,11 @@ test("first name input is required", () => {
   expect(getByTestId(/first-name/i)).toBeRequired();
 });
 
+test("last name and email inputs are required", () => {
+  const { getByTestId } = render(<ContactForm />);
+  expect(getByTestId(/last-name/i)).toBeRequired();
+  expect(getByTestId(/email/i)).toBeRequired();
+});
+
+
 
