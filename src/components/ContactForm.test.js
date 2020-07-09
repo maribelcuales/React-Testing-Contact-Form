@@ -15,3 +15,27 @@ test("input labels are visible", () => {
   expect(getByText(/message/i)).toBeVisible();
 }); 
 
+test("Input data in form inputs", () => {
+  const { getByLabelText, getByTestId} = render(<ContactForm />);
+
+  const firstNameInput = getByLabelText(/First Name*/i);
+  const lastNameInput = getByLabelText(/Last Name*/i);
+  const emailInput = getByLabelText(/Email*/i);  
+  const messagesInput = getByLabelText(/Message/i);
+
+  fireEvent.change(firstNameInput, {target: { value: 'dae' }});
+  fireEvent.change(lastNameInput, {target: { value: 'targaryen' }});
+  fireEvent.change(emailInput, {target: { value: 'dtargaryen@email.com' }});
+  fireEvent.change(messagesInput, {target: { value: 'Order pizza in Westeros' }});
+
+  expect(firstNameInput.value).toBe('dae');
+  expect(lastNameInput.value).toBe('targaryen');
+  expect(emailInput.value).toBe('dtargaryen@email.com');
+  expect(messagesInput.value).toBe('Order pizza in Westeros');
+
+  // fireEvent.click(getByTestId(/submit/i));
+
+  // const userText = getByText('dae');
+  // expect (userText).toBeInTheDocument();
+});
+
